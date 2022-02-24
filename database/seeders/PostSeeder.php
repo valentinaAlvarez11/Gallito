@@ -15,39 +15,39 @@ class PostSeeder extends Seeder
     {
         //primer usuario
         DB::table('posts')->insert([
-            'content' => 'Isabella',
+            'content' => 'Cualquier cosa #1',
             'likes' => 30000 , 
             'user_id' => 1
         ]);
 
         DB::table('posts')->insert([
-            'content' => 'Valentina',
+            'content' => 'Cualquier cosa #2',
             'likes' => 30000 , 
             'user_id' => 1
         ]);
         
         //segundo usuario
         DB::table('posts')->insert([
-            'content' => 'Juan Manuel',
+            'content' => 'Cualquier cosa #3',
             'likes' => 75000 , 
             'user_id' => 2
         ]);
 
         DB::table('posts')->insert([
-            'content' => 'Maria José',
+            'content' => 'Cualquier cosa #4',
             'likes' => 45000 , 
             'user_id' => 2
         ]);
 
-        //usuario 3
+        //usuario 
         DB::table('posts')->insert([
-            'content' => 'Sofia',
+            'content' => 'Cualquier cosa #5',
             'likes' => 700000 , 
-            'user_id' => 3
+            'user_id' => 2
         ]);
 
         DB::table('posts')->insert([
-            'content' => 'Alejandro',
+            'content' => 'Cualquier cosa#6',
             'likes' => 500 , 
             'user_id' => 3
         ]);
