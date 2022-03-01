@@ -3,6 +3,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
+use App\Models\Post;
 
 class PostSeeder extends Seeder
 {
@@ -13,7 +14,39 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        //primer usuario
+
+        $p=new Post();
+        $p->content="cualquier cosa #1";
+        $p->user_id=1;
+        $p->save();
+
+        $p=new Post();
+        $p->content="cualquier cosa #2";
+        $p->user_id=1;
+        $p->save();
+
+        $p=new Post();
+        $p->content="cualquier cosa #3";
+        $p->user_id=2;
+        $p->save();
+
+        $p=new Post();
+        $p->content="cualquier cosa #4";
+        $p->user_id=2;
+        $p->save();
+
+         $p=new Post();
+        $p->content="cualquier cosa #5";
+        $p->user_id=2;
+        $p->save();
+
+        $p=new Post();
+        $p->content="cualquier cosa #6";
+        $p->user_id=3;
+        $p->save();
+
+
+        /*primer usuario
         DB::table('posts')->insert([
             'content' => 'Cualquier cosa #1',
             'likes' => 30000 , 
@@ -50,7 +83,7 @@ class PostSeeder extends Seeder
             'content' => 'Cualquier cosa#6',
             'likes' => 500 , 
             'user_id' => 3
-        ]);
+        ]);*/
     }
 }
 
