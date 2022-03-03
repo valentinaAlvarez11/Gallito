@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
- 
+
 <div class="container">
-    <h1>Publicaicones de {{$user->name}}</h1>
+    <h1></h1>
 
     @forelse($posts as $post)
     <div class="card mb-2">
@@ -19,5 +19,10 @@
  ¡ El usuario no ha publicado mensajes!
 </div>
 @endforelse
+
+<div class ="mt-3">
+{{ $posts->links() }}
+</div>
+
 </div>
 @endsection
