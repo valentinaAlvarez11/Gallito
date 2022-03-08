@@ -3,8 +3,9 @@
 @section('content')
 
 <div class="container">
-    <h1>Registrar un nuevo usuario</h1>
 
+    <h1 class="text-center">Registrar un nuevo usuario</h1>
+   <div class="abs-center">
     {!! Form::open(['route' => 'users.store', 'method' => 'post']) !!}
         <div class="mb-3 form-group">
             <label for="formGroupExampleInput">Nombre</label>
@@ -21,8 +22,16 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Crear</button>
-
+       </div>
     {!! Form::close() !!}
 
 </div>
+<br></br>
+<footer class="page-footer font-small blue pt-4 ">
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">Desarrollado en programación Backend por Isabella Grajales © 2022
+
+  <!-- Copyright -->
+
+</footer>
 @endsection

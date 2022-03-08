@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\PostController;
+use App\Http\Requests\PostCreateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -45,12 +48,17 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
+        //TO DO : VALIDAR
+        //dd( $request->input('content'));
         $post = new Post();
-        $post ->fill($request);
-        $post->user_id=1;
-        dd( $request->input('content'));
+        $post->fill($request->input());
+        $post->user_id=Auth::id();
+
+        $post->save();
+
+        return redirect(route('home'));
     }
 
     /**
@@ -72,7 +80,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit' , compact('post'));
+
     }
 
     /**
@@ -82,9 +91,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostCreateRequest $request, Post $post)
     {
-        //
+        $post->fill($request->input());
+        $post->save();
+        return redirect(route('user.posts',$post->user_id));
     }
 
     /**

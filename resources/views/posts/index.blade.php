@@ -3,26 +3,32 @@
 
 
 <div class="container">
-    <h1></h1>
 
-    @forelse($posts as $post)
-    <div class="card mb-2">
-    <div class="card-body">
-<h5 class="card-title">{{ $user->name}}</h5>
-<h6 class ="card-subtitle mb-2 text-muted">{{$post->created_at->format('d/m/Y') }}</h6>
-<h6 class ="card-subtitle mb-2 text-muted">{{$post->created_at->diffForHumans() }}</h6>
-<p class="card-text">{{$post->content}}</p>
-    </div>
-</div>
+<h1 class="text-center">Publicaciones de {{ $user->name}}</h1>
+
+@forelse($posts as $post)
+    @include('posts.subview-post')
+
 @empty
-<div class="alert alert-info" role="alert">
- ¡ El usuario no ha publicado mensajes!
-</div>
+    <div class="alert alert-info" role="alert">
+        ¡ El usuario no ha publicado mensajes!
+    </div>
 @endforelse
 
-<div class ="mt-3">
+    <div class ="mt-3">
 {{ $posts->links() }}
-</div>
+    </div>
 
+</div>
+<br></br>
+<br></br>
+<div>
+<footer class="page-footer font-small blue pt-4 ">
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">Desarrollado en programación Backend por Isabella Grajales © 2022
+
+  <!-- Copyright -->
+
+</footer>
 </div>
 @endsection

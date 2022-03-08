@@ -74,4 +74,9 @@
         </div>
     </div>
 </div>
+<footer class="page-footer font-small blue pt-4 ">
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">Desarrollado en programación Backend por Isabella Grajales © 2022
+
+  <!-- Copyright -->
 @endsection

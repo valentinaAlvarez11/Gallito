@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <h1>Usuarios Registrados en Gallito</h1>
+    <h1 class="text-center">Usuarios Registrados en Gallito</h1>
 
     @forelse ($users as $user)
         <div class="card mb-2">
@@ -21,6 +21,15 @@
     @endforelse
     <div class="mt-3"> {{ $users->links() }} </div>
 
+</div>
+<div>
+<footer class="page-footer font-small blue pt-4 ">
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">Desarrollado en programación Backend por Isabella Grajales © 2022
+
+  <!-- Copyright -->
+
+</footer>
 </div>
 
 @endsection

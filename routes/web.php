@@ -23,16 +23,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+//ruta home
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/{user}', [PostController::class, 'index']);
-
+//ruta usuario especifico
+Route::get('u/{user}', [PostController::class, 'index'])->name('user.posts');
+//ruta listado de usuarios
 Route::get('/users/view', [UserController::class, 'index']);
 
-Route::resource('users', UserController::class)
-    ->except(['index']);
+Route::resource('users', UserController::class)->except(['index']);
 
-Route::resource('posts', PostController::class)
-    ->except(['index']);
+Route::resource('posts', PostController::class)->except(['index']);
 
-Route::get('/home', [HomeController::class, 'index'])
-    ->name('home');
+
