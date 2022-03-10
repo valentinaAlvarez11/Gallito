@@ -2,30 +2,13 @@
 
 @section('content')
 <div class="container">
+<h1 class="text-center">últimas publicaciones de {{ Auth::user()->name }}</h1>
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
- <div class="row justify-content-center">
             @forelse ($posts as $post)
-                <div class="card mb-3 bg-dark">
+
+                <div class="card mb-3" >
                     <div class="card-body border-0">
-                        @include('posts.subview-post')
+                    @include('posts.subview-post', ['user'=>Auth::user()])
                     </div>
                 </div>
 @empty
@@ -35,6 +18,9 @@
             @endforelse
         </div>
     </div>
+</div>
+
+
 
 <br></br>
 <footer class="page-footer font-small blue pt-4 ">

@@ -19,12 +19,7 @@ class PostController extends Controller
     public function index(User $user)
 
     {
-        //$user = User::find($id);
-        //echo"Hola  ".$user->name;
-       // $post=Post::where('user_id',$user->id)
-        //->orderBy('created_at','desc')
-        //->get();
-
+        
         $posts = $user->posts()
         ->orderBy('created_at','desc')
         ->simplePaginate(2);
@@ -106,6 +101,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect (route('user.posts',$post->user_id));
     }
 }

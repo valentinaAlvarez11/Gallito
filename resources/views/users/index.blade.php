@@ -9,9 +9,13 @@
     @forelse ($users as $user)
         <div class="card mb-2">
             <div class="card-body">
+                <a href="#">
                 <h5 class="card-title">{{$user->name}}</h5>
+                </a>
+
                 <h6 class="card-subtitle mb-2 text-muted">{{$user->created_at->diffForHumans()}}</h6>
                 <p class="card-text">{{$user->email}}</p>
+
             </div>
         </div>
     @empty

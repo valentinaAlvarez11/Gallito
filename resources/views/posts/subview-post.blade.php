@@ -7,12 +7,27 @@
         </div>
 
         <div class="text-right">
-            <a href="{{ route('posts.edit', $post->id) }}">
-                <i class="fa-solid fa-pen-to-square iconos" style="color:black;" tittle="Editar post"></i>
+            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info">
+                <i class="fa-solid fa-pen-to-square " style="color:black;" title="Editar post"></i>
             </a>
-            <a href="iconos">
-                <i class="fa-solid fa-trash-can iconos" style="color:black;" title="Remover post"></i>
-            </a>
+            <br></br>
+            {!! Form::open(['route'=> ['posts.destroy', $post->id] , 'method' =>'delete']) !!}
+
+            {!! Form::button('<i class="fa-solid fa-trash-can " style="color:black;" ></i>',[
+                'type'=>'submit',
+                'title'=>"Remover Post",
+                'class'=>'btn btn-danger',
+                'onclick'=> " return confirm('¿Está seguro?,tenga en cuenta que esta reaccion no es reversible')"
+                ])
+
+            !!}
+
+            {!! Form::close() !!}
+
+
+
+
+
         </div>
     </div>
 </div>

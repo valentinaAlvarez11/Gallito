@@ -7,7 +7,7 @@
 <h1 class="text-center">Publicaciones de {{ $user->name}}</h1>
 
 @forelse($posts as $post)
-    @include('posts.subview-post')
+    @include('posts.subview-post',compact('posts'))
 
 @empty
     <div class="alert alert-info" role="alert">

@@ -18,21 +18,30 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//Publicas
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-//ruta home
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-//ruta usuario especifico
-Route::get('u/{user}', [PostController::class, 'index'])->name('user.posts');
-//ruta listado de usuarios
-Route::get('/users/view', [UserController::class, 'index']);
+Route::get('/u/{user}', [PostController::class, 'index'])->name('user.posts');
 
-Route::resource('users', UserController::class)->except(['index']);
+//Privadas
 
-Route::resource('posts', PostController::class)->except(['index']);
+Route::middleware(['auth'])->group(function (){
+    Route::get('/home', [HomeController::class, 'index'])
+    ->name('home');
+
+    Route::get('/users/view', [UserController::class, 'index']);
+
+    Route::resource('users', UserController::class)
+    ->except(['index']);
+
+    Route::resource('posts', PostController::class)
+    ->except(['index'])->middleware('auth');
+
+});
 
 
